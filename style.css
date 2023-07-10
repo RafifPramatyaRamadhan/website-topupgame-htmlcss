@@ -1,0 +1,297 @@
+:root {
+    --warnabg: #427288;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+body{
+    font-family: 'poppins', sans-serif;
+    background-color: var(--warnabg);
+    color: #fff;
+    min-height: 2000px;
+
+}
+
+/* navbar */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.3rem 3%;
+    background-color: rgb(1, 1, 1, 0.8);
+    border-bottom: 1px solid #c3dcd7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+    /* navbar halaman GameStore */
+.navbar .navbar-logo{
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+    
+    /* navbar tengah */
+.navbar .navbar-nav a{
+    color: #fff;
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0.1rem;
+}
+
+.navbar .navbar-nav a:hover{
+    color: var(--primary);
+}
+
+.navbar .navbar-nav a::after{
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid var(--primary);
+    transform: scaleX(0);
+}
+
+.navbar .navbar-nav a:hover::after{
+    transform: scaleX(0.5);
+    transition: 0.2s linear;
+}
+
+/* navbar kanan ikon */
+.navbar .navbar-extra a{
+    color: #fff;    
+    margin: 0 0.3rem;
+}
+
+.navbar .navbar-extra a:hover{
+    color: var(--primary);
+}
+
+/* home section */
+.gameset img{
+    display: inline-block;
+    height: 60vh;   
+    width: 160vh;
+    margin: 15px;
+    border-radius: 30px;
+}
+
+.content {
+    padding: 8rem 2% 3rem;       
+    height: 200px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    font-size: 25px;
+}
+
+.game-populer{
+    padding: 13rem 2% 1.8rem;  
+    padding-bottom:0; 
+    color: #ffffff;
+    font-size: 0.8rem;
+}
+
+.game{
+    padding: 6rem 1% 1rem;
+}
+
+.produk-1{
+    display: block;
+    width: 17%;
+    margin: 18px;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 10px;
+    border-radius: 17px;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 7px ;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0 0,0 ,22);
+    transition: .4s;
+    background: #000035;
+}
+
+.produk-1:hover{
+    box-shadow: 0 3px 6px rgba(0,0,0,0,14), 0 3px 6px rgba(0,0,0,0,23);
+    transform: translate(0px, -8px);
+}
+
+.produk-2{
+    display: block;
+    width: 17%;
+    margin: 18px;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 10px;
+    border-radius: 17px;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 7px ;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0 0,0 ,22);
+    transition: .4s;
+    background: #3f5057;
+}
+
+.produk-2:hover{
+    box-shadow: 0 3px 6px rgba(0,0,0,0,14), 0 3px 6px rgba(0,0,0,0,23);
+    transform: translate(0px, -8px);
+}
+
+.gemes{
+    width: 15%;
+    margin: 16px;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 20px;
+    border-radius: 17px;
+    padding-top: 55px;
+    padding-bottom: 426px ;
+    background: #3f5057;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    border-radius: 20px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #0c0c0c;
+    box-sizing: border-box;
+  }
+  
+  /* Set a style for all buttons */
+  button {
+    background-color: #04AA6D;
+    color: rgb(252, 248, 248);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+  }
+  
+  /* Center the image and position the close button */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+  
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+  .container {
+    padding: 16px;
+  }
+  
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color:white;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+    border-radius: 10px 10px 10px 10px;
+  }
+  
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: red;
+    cursor: pointer;
+  }
+  
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }
+  

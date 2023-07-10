@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamedotStore</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet">
+
+    <!-- icons -->
+<script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- style css -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/login.css">
+
+</head>
+
+<body>
+    <!-- navbar  -->
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">Game.Store</a>
+        
+        <div class="navbar-nav">
+            <a href="#game">Games Populer</a>
+            <a href="">|</a>
+            <a href="#kenapa">Games</a>
+        </div>
+        
+        <div class="navbar-extra">
+            <a href="#" id="masuk"> <i data-feather="log-in"></i></a>
+            <a href="#" id="search"> <i data-feather="search"></i></a>
+            <a href="#" id="notifikasi"> <i data-feather="bell"></i></a>
+            <a href="#" id="setting"> <i data-feather="settings"></i></a>
+            <a href="#" id="keluar"> <i data-feather="log-out"></i></a>
+        </div>
+    </nav>
+    
+<div class="hero">    
+    <h2 class="content"></h2>
+</div>
+
+<div id="id01">
+  
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <div class="container">
+      <label for="uname" style="color: black;"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw" style="color: black;"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <button type="submit">Login</button>
+
+      <label>
+        <input for="psw" type="checkbox" checked="checked" name="remember"><a style="color: black;"> remember me    </a> 
+      </label><br>
+
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw" style="color: black;">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+<!-- icons -->
+    <script>
+        feather.replace()
+    </script>
+</body>
+
+</html>
