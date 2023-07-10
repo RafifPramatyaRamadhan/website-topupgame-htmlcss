@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Halaman Pembayaran</title>
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <style>
+    
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #3b3737;
+        border-radius: 4px;
+        background-color: #3d3737;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      .form-group input[type="text"],
+      .form-group input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #1b1b1b;
+        border-radius: 4px;
+      }
+
+      .form-group select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #584e4e;
+        border-radius: 4px;
+      }
+
+      .form-group .payment-method {
+        display: flex;
+        align-items: center;
+      }
+
+      .form-group .payment-method img {
+        width: 70px;
+        height: auto;
+        margin-right: 10px;
+      }
+
+      .form-group button {
+        padding: 8px 12px;
+        background-color: #4caf50;
+        color: #000000;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .form-group button:hover {
+        background-color: #45a049;
+      }
+    </style>
+      <body>
+        <!-- navbar  -->
+        <nav class="navbar">
+          <a href="#" class="navbar-logo">Game.Store</a>
+    
+          <div class="navbar-nav">
+            <a href="#game">Games Populer</a>
+            <a href="">|</a>
+            <a href="#kenapa">Games</a>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Halaman Pembayaran</h2>
+      <form id="paymentForm">
+        <div class="form-group">
+          <label for="name">Nama Lengkap:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Alamat Email:</label>
+          <input type="text" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="quantity">Jumlah Barang:</label>
+          <input type="number" id="quantity" name="quantity" required />
+        </div>
+        <div class="form-group">
+          <label for="price">Harga Satuan (IDR):</label>
+          <select id="price" name="price" required>
+            <option value="5000">5 Diamond</option>
+            <option value="10000">15 Diamond</option>
+            <option value="50000">90 Diamond</option>
+            <option value="100000">200 Diamond</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="paymentMethod">Metode Pembayaran:</label>
+          <div class="payment-method">
+            <a
+              href="https://gopay.com/payment?phone=081359162733&amount=<%= total %>"
+              ><img src="gambar/gopay.jpeg" alt="GoPay Logo"
+            /></a>
+            <input
+              type="radio"
+              id="gopay"
+              name="paymentMethod"
+              value="gopay"
+              checked
+            />
+            <label for="gopay">GoPay</label>
+          </div>
+          <div class="payment-method">
+            <a
+              href="https://ovo.com/payment?phone=081359162733&amount=<%= total %>"
+              ><img src="gambar/ovo.png" alt="OVO Logo"
+            /></a>
+            <input type="radio" id="ovo" name="paymentMethod" value="ovo" />
+            <label for="ovo">OVO</label>
+          </div>
+          <div class="payment-method">
+            <a href="tel:081359162733"
+              ><img src="gambar/telkomsel.png" alt="Pulsa Logo"
+            /></a>
+            <input type="radio" id="pulsa" name="paymentMethod" value="pulsa" />
+            <label for="pulsa">Pulsa Telkomsel</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="paymentAmount">Total Harga (IDR):</label>
+          <span id="paymentAmount"></span>
+        </div>
+        <div class="form-group">
+          <button type="submit">Bayar</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("paymentForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var name = document.getElementById("name").value;
+          var email = document.getElementById("email").value;
+          var quantity = document.getElementById("quantity").value;
+          var price = document.getElementById("price").value;
+          var paymentMethod = document.querySelector(
+            'input[name="paymentMethod"]:checked'
+          ).value;
+
+          // Proses pembayaran
+          processPayment(name, email, quantity, price, paymentMethod);
+        });
+
+      function processPayment(name, email, quantity, price, paymentMethod) {
+        var total = quantity * price; //  total harga
+
+        // Menampilkan total harga
+        document.getElementById("paymentAmount").textContent =
+          "Total Harga: " + total + " IDR";
+
+        // metode pembayaran yang dipilih "example"
+        if (paymentMethod === "gopay") {
+          // Proses pembayaran menggunakan GoPay saya 
+          window.location.href =
+            "https://gopay.com/payment?phone=+6281359162733&amount=" + total;
+        } else if (paymentMethod === "ovo") {
+          // Proses pembayaran menggunakan OVO
+          window.location.href =
+            "https://ovo.com/payment?phone=+6281359162733&amount=" + total;
+        } else if (paymentMethod === "pulsa") {
+          // Proses pembayaran menggunakan Pulsa Telkomsel
+          window.location.href = "tel:+6281359162733";
+        }
+      }
+    </script>
+  </body>
+</html>
