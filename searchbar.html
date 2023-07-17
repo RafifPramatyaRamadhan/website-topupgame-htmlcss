@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kotak Pencarian</title>
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <form id="search-form" onsubmit="event.preventDefault(); search();">
+      <input type="text" id="search-input" placeholder="Cari..." />
+      <button type="submit" id="search-button">Cari</button>
+    </form>
+    <div id="search-results"></div>
+
+    <script>
+      function search() {
+        var searchInput = document.getElementById("search-input").value;
+        var searchResults = document.getElementById("search-results");
+
+        // Logika pencarian dan hasilnya di sini
+        // Contoh sederhana: Menampilkan kata kunci pencarian di bawah kotak pencarian
+        searchResults.innerText = "Anda mencari: " + searchInput;
+      }
+    </script>
+  </body>
+</html>
