@@ -1,194 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Halaman Pembayaran</title>
-    <!-- css -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Page</title>
+    <!-- Include necessary CSS and JavaScript (feather-icons) -->
     <link rel="stylesheet" href="css/style.css" />
-
+    <script src="https://unpkg.com/feather-icons"></script>
     <style>
-    
-      body {
-        font-family: Arial, sans-serif;
+      .payment-form {
+        margin-top: 120px;
+        width: 80%;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
-      .container {
-        width: 400px;
-        margin: 0 auto;
-        padding: 20px;
-        border: 1px solid #3b3737;
-        border-radius: 4px;
-        background-color: #3d3737;
+      .payment-form h2 {
+        margin-top:120px;
       }
 
-      h2 {
-        text-align: center;
-        margin-bottom: 20px;
+      .payment-form form {
+        margin-top: 120px;
       }
 
-      .form-group {
-        margin-bottom: 20px;
-      }
-
-      .form-group label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-      }
-
-      .form-group input[type="text"],
-      .form-group input[type="number"] {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #1b1b1b;
-        border-radius: 4px;
-      }
-
-      .form-group select {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #584e4e;
-        border-radius: 4px;
-      }
-
-      .form-group .payment-method {
-        display: flex;
-        align-items: center;
-      }
-
-      .form-group .payment-method img {
-        width: 70px;
-        height: auto;
-        margin-right: 10px;
-      }
-
-      .form-group button {
-        padding: 8px 12px;
-        background-color: #4caf50;
-        color: #000000;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-
-      .form-group button:hover {
-        background-color: #45a049;
+      .error-message {
+        color: red;
       }
     </style>
-      <body>
-        <!-- navbar  -->
-        <nav class="navbar">
-          <a href="#" class="navbar-logo">Game.Store</a>
-    
-          <div class="navbar-nav">
-            <a href="#game">Games Populer</a>
-            <a href="">|</a>
-            <a href="#kenapa">Games</a>
   </head>
   <body>
-    <div class="container">
-      <h2>Halaman Pembayaran</h2>
-      <form id="paymentForm">
-        <div class="form-group">
-          <label for="name">Nama Lengkap:</label>
-          <input type="text" id="name" name="name" required />
+    <nav class="navbar">
+      <a href="index.html" class="navbar-logo">Game.Store</a>
+      <div class="navbar-nav">
+        <a href="#game1">Games Populer</a>
+        <a href="#">|</a>
+        <a href="#game2">Games</a>
+      </div>
+      <div class="navbar-extra">
+        <a href="#" id="masuk"><i data-feather="log-in"></i></a>
+        <a href="#" id="search"><i data-feather="search"></i></a>
+        <a href="#" id="notifikasi"><i data-feather="bell"></i></a>
+        <a href="#" id="setting"><i data-feather="settings"></i></a>
+        <a href="#" id="keluar"><i data-feather="log-out"></i></a>
+      </div>
+    </nav>
+
+    <section class="payment-form">
+      <h2>Payment Details</h2>
+      <form
+        action="process_payment.php"
+        method="POST"
+        onsubmit="return validateForm()"
+      >
+
+  
         </div>
         <div class="form-group">
-          <label for="email">Alamat Email:</label>
-          <input type="text" id="email" name="email" required />
+          <label for="amount">Jumlah:</label>
+          <input type="number" id="amount" name="amount" required />
         </div>
         <div class="form-group">
-          <label for="quantity">Jumlah Barang:</label>
-          <input type="number" id="quantity" name="quantity" required />
+          <label for="username">Nama Pengguna:</label>
+          <input type="text" id="username" name="username" required />
         </div>
         <div class="form-group">
-          <label for="price">Harga Satuan (IDR):</label>
-          <select id="price" name="price" required>
-            <option value="5000">5 Diamond</option>
-            <option value="10000">15 Diamond</option>
-            <option value="50000">90 Diamond</option>
-            <option value="100000">200 Diamond</option>
+          <label for="payment_method">Metode Pembayaran:</label>
+          <select id="payment_method" name="payment_method" required>
+            <option value="">Pilih Metode Pembayaran</option>
+            <option value="gopay">GoPay</option>
+            <option value="ovo">OVO</option>
+            <option value="telkomsel">Telkomsel</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="paymentMethod">Metode Pembayaran:</label>
-          <div class="payment-method">
-            <a
-              href="https://gopay.com/payment?phone=081359162733&amount=<%= total %>"
-              ><img src="gambar/gopay.jpeg" alt="GoPay Logo"
-            /></a>
-            <input
-              type="radio"
-              id="gopay"
-              name="paymentMethod"
-              value="gopay"
-              checked
-            />
-            <label for="gopay">GoPay</label>
-          </div>
-          <div class="payment-method">
-            <a
-              href="https://ovo.com/payment?phone=081359162733&amount=<%= total %>"
-              ><img src="../gambarovo.png" alt="OVO Logo"
-            /></a>
-            <input type="radio" id="ovo" name="paymentMethod" value="ovo" />
-            <label for="ovo">OVO</label>
-          </div>
-          <div class="payment-method">
-            <a href="tel:081359162733"
-            ></a><img src="../tes website/img/ovo.png">   
-            /></a>
-            <input type="radio" id="pulsa" name="paymentMethod" value="pulsa" />
-            <label for="pulsa">Pulsa Telkomsel</label>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="paymentAmount">Total Harga (IDR):</label>
-          <span id="paymentAmount"></span>
+          <label for="user_id">ID Pengguna:</label>
+          <input type="text" id="user_id" name="user_id" required />
         </div>
         <div class="form-group">
           <button type="submit">Bayar</button>
         </div>
       </form>
-    </div>
+    </section>
 
     <script>
-      document
-        .getElementById("paymentForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
+      feather.replace(); // Replace feather icons
 
-          var name = document.getElementById("name").value;
-          var email = document.getElementById("email").value;
-          var quantity = document.getElementById("quantity").value;
-          var price = document.getElementById("price").value;
-          var paymentMethod = document.querySelector(
-            'input[name="paymentMethod"]:checked'
-          ).value;
+      function validateForm() {
+        var amount = document.getElementById("amount").value.trim();
+        var username = document.getElementById("username").value.trim();
+        var payment_method = document.getElementById("payment_method").value;
+        var user_id = document.getElementById("user_id").value.trim();
+        var isValid = true;
+        var errorMessage = "";
 
-          // Proses pembayaran
-          processPayment(name, email, quantity, price, paymentMethod);
-        });
-
-      function processPayment(name, email, quantity, price, paymentMethod) {
-        var total = quantity * price; //  total harga
-
-        // Menampilkan total harga
-        document.getElementById("paymentAmount").textContent =
-          "Total Harga: " + total + " IDR";
-
-        // metode pembayaran yang dipilih "example"
-        if (paymentMethod === "gopay") {
-          // Proses pembayaran menggunakan GoPay saya 
-          window.location.href =
-            "https://gopay.com/payment?phone=+6281359162733&amount=" + total;
-        } else if (paymentMethod === "ovo") {
-          // Proses pembayaran menggunakan OVO
-          window.location.href =
-            "https://ovo.com/payment?phone=+6281359162733&amount=" + total;
-        } else if (paymentMethod === "pulsa") {
-          // Proses pembayaran menggunakan Pulsa Telkomsel
-          window.location.href = "tel:+6281359162733";
+        if (amount === "") {
+          errorMessage += "Amount harus diisi.\n";
+          isValid = false;
         }
+        if (username === "") {
+          errorMessage += "Username harus diisi.\n";
+          isValid = false;
+        }
+        if (payment_method === "") {
+          errorMessage += "Payment Method harus dipilih.\n";
+          isValid = false;
+        }
+        if (user_id === "") {
+          errorMessage += "User ID harus diisi.\n";
+          isValid = false;
+        }
+
+        // Jika terdapat kesalahan, tampilkan pesan kesalahan
+        if (!isValid) {
+          alert(errorMessage);
+        }
+
+        return isValid; // Mengembalikan nilai true jika formulir valid, false jika tidak
       }
     </script>
   </body>
